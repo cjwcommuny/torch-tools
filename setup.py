@@ -5,10 +5,10 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="torchtools-cjwcommuny",
-    version="0.0.1",
+    version="0.0.2",
     author="cjwcommuny",
     author_email="cjwcommuny@outlook.com",
-    description="A functional interface for python iterator",
+    description="Toolkit for Pytorch",
     packages=setuptools.find_packages(),
     long_description=long_description,
     long_description_content_type="text/markdown",
