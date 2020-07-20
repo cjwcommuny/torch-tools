@@ -29,8 +29,8 @@ class MultiFullyConnectedLayer(nn.Module):
     def __init__(
             self,
             dims: Iterable[int],
-            activation: Callable,
-            dropout_rate: float
+            dropout_rate: float,
+            activation: Callable=nn.ReLU()
     ):
         super().__init__()
         dim_pairs = zip(dims[:-1], dims[1:])
