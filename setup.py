@@ -5,14 +5,14 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="torchtools-cjwcommuny",
-    version="0.0.6",
+    version="0.0.7",
     author="cjwcommuny",
     author_email="cjwcommuny@outlook.com",
     description="Toolkit for Pytorch",
     packages=setuptools.find_packages(),
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/cjwcommuny/functionalstream",
+    url="https://github.com/cjwcommuny/torch-tools",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
