@@ -4,10 +4,9 @@ import torch
 from torch import nn
 from torch import Tensor
 
-from torchtools.modules.module_wrapper import ModuleWrapper
 
 
-class AdditiveAttention(ModuleWrapper):
+class AdditiveAttention(nn.Module):
     def __init__(
             self,
             h_len,
@@ -20,14 +19,6 @@ class AdditiveAttention(ModuleWrapper):
         self.tanh = nn.Tanh()
         self.w = nn.Linear(hidden_dim, 1, bias=False)
         self.softmax = nn.Softmax(dim=1)
-
-    @property
-    def weights(self) -> Dict[str, Tensor]:
-        return {'W': self.W.weight, 'U': self.U.weight, 'w': self.w.weight}
-
-    @property
-    def biases(self) -> Dict[str, Tensor]:
-        return {'W': self.W.bias}
 
 
     def forward(self, h, V):

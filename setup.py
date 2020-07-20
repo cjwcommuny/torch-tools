@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="torchtools-cjwcommuny",
-    version="0.0.7",
+    version="0.0.8",
     author="cjwcommuny",
     author_email="cjwcommuny@outlook.com",
     description="Toolkit for Pytorch",
