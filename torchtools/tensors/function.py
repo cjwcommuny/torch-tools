@@ -27,3 +27,7 @@ def unsqueeze(input: Tensor, dim: int, num: int) -> Tensor:
     return input.reshape(new_shape)
 
 
+def mask_to_index_1d(mask: Tensor) -> Tensor:
+    return torch.nonzero(mask).squeeze()
+
+

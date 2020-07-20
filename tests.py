@@ -83,12 +83,12 @@ class TensorGroupTestCase(TestCase):
         self.assertTrue(
             torch.equal(
                 table_selected['frame_id'],
-                table['frame_id'].index_select(dim=0, index=indices)
+                table['frame_id'].index_select(dim=0, idx=indices)
             )
         )
         self.assertTrue(
             torch.equal(
                 table_selected['features'],
-                table['features'].index_select(dim=0, index=indices)
+                table['features'].index_select(dim=0, idx=indices)
             )
         )
