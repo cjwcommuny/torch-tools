@@ -1,8 +1,8 @@
-from typing import Tuple, List
+from typing import Tuple
 
 import cv2
-from cv2 import VideoCapture
 import torch
+from cv2 import VideoCapture
 from torch import Tensor
 
 from torchtools.images import opencv_image_to_torch_tensor

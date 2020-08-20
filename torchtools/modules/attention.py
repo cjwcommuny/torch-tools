@@ -1,9 +1,5 @@
-from typing import Dict
-
 import torch
 from torch import nn
-from torch import Tensor
-
 
 
 class AdditiveAttention(nn.Module):
@@ -19,6 +15,8 @@ class AdditiveAttention(nn.Module):
         self.tanh = nn.Tanh()
         self.w = nn.Linear(hidden_dim, 1, bias=False)
         self.softmax = nn.Softmax(dim=1)
+        #
+        self.out_feature_dim = v_len
 
 
     def forward(self, h, V):
@@ -36,8 +34,8 @@ class AdditiveAttention(nn.Module):
         batch_size, h_len = h.shape
         seq_len, v_len = V.shape[1:]
         assert batch_size == V.shape[0]
-        assert h_len == self.W.in_features
-        assert v_len == self.U.in_features
+        assert h_len == self.W.in_features, f"{h.shape}, {self.W.in_features}"
+        assert v_len == self.U.in_features, f"{V.shape}, {self.U.in_features}"
 
         h_after_projection = self.W(h).unsqueeze(dim=1) # shape=(batch_size, 1, hidden_dim)
         V_after_projection = self.U(V) # shape=(batch_size, seq_len, hidden_dim)

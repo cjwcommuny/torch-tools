@@ -1,7 +1,8 @@
-import torchvision.transforms.functional as torchvision_fn
 import numpy as np
-from torch import Tensor
+import torchvision.transforms.functional as torchvision_fn
 from PIL import Image
+from torch import Tensor
+
 
 def opencv_image_to_torch_tensor(image: np.ndarray) -> Tensor:
     import cv2

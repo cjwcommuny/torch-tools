@@ -1,5 +1,4 @@
 import torch
-from torch import nn
 from torch import Tensor
 
 def softmax_nce_loss(X1: Tensor, X2: Tensor, noise_distribution: Tensor) -> Tensor:

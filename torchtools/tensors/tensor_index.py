@@ -1,5 +1,5 @@
-import itertools
-from typing import Tuple, OrderedDict, Union, List, Dict
+from typing import Tuple, Union, List, Dict
+
 from torch import Tensor
 
 from torchtools.tensors import mask_to_index_1d

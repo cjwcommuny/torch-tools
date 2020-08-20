@@ -1,4 +1,3 @@
-import torch
 from torch import nn
 
 
@@ -8,4 +7,11 @@ class ZeroLayer(nn.Module):
 
     def forward(self, *args, **kwargs):
         return 0
+
+class Identical(nn.Module):
+    def __init__(self, *args, **kwargs):
+        super().__init__()
+
+    def forward(self, x):
+        return x
     

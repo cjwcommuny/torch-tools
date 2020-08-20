@@ -1,14 +1,14 @@
-from torchvision.models import resnet50
-import torchvision.transforms.functional as torchvision_fn
+from collections import OrderedDict
 
-from torchvision.models.resnet import Bottleneck, ResNet
 import torch
+import torchvision.transforms.functional as torchvision_fn
+from torch import Tensor
 from torch import nn
+from torch.jit.annotations import List, Dict, Tuple
+from torchvision.models import resnet50
 from torchvision.models.detection import maskrcnn_resnet50_fpn, fasterrcnn_resnet50_fpn
 from torchvision.models.detection.generalized_rcnn import GeneralizedRCNN
-from torch.jit.annotations import List, Dict, Tuple
-from torch import Tensor
-from collections import OrderedDict
+from torchvision.models.resnet import Bottleneck, ResNet
 
 
 def resnet50_from_checkpoint(file_like_obj):

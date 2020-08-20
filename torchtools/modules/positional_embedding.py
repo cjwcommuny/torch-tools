@@ -1,8 +1,9 @@
 from typing import Tuple
 
 import torch
-from torch import nn
 from torch import Tensor
+from torch import nn
+
 
 class AbsolutePositionalEmbedding(nn.Module):
     def __init__(self, max_length: int, dim_encoding: int):

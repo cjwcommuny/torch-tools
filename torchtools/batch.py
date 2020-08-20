@@ -1,12 +1,12 @@
-from typing import Tuple, List
+from typing import Tuple, List, NamedTuple
 
 import torch
 from torch import Tensor
 from torch.nn.utils.rnn import pad_sequence
 
 
-def batch_to_cuda(batch: Tuple[Tensor], device='cuda:0'):
-    return tuple(x.to(device) for x in batch)
+def batch_to_cuda(batch: NamedTuple, device='cuda:0'):
+    return type(batch)(*[x.to(device) if isinstance(x, Tensor) else x for x in batch])
 
 
 def pad_batch(sequence: List[Tensor]) -> Tuple[Tensor, Tensor]:
