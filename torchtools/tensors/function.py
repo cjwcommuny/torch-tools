@@ -35,7 +35,7 @@ def unsqueeze(input: Tensor, dim: int, num: int) -> Tensor:
 
 
 def mask_to_index_1d(mask: Tensor) -> Tensor:
-    return torch.nonzero(mask).squeeze()
+    return torch.nonzero(mask, as_tuple=False).squeeze()
 
 
 def if_item_view_1(tensor: Tensor) -> Tensor:
