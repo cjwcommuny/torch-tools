@@ -7,7 +7,8 @@ class AdditiveAttention(nn.Module):
             self,
             h_len,
             v_len,
-            hidden_dim
+            hidden_dim,
+            return_weight=False
     ):
         super(AdditiveAttention, self).__init__()
         self.W = nn.Linear(h_len, hidden_dim)
@@ -17,6 +18,7 @@ class AdditiveAttention(nn.Module):
         self.softmax = nn.Softmax(dim=1)
         #
         self.out_feature_dim = v_len
+        self.return_weight = return_weight
 
 
     def forward(self, h, V):
@@ -42,4 +44,7 @@ class AdditiveAttention(nn.Module):
         e = self.w(self.tanh(h_after_projection + V_after_projection)).view(batch_size, seq_len)
         beta = self.softmax(e) # shape=(batch_size, seq_len)
         result = torch.einsum("bs,bsv->bv", beta, V)
-        return result
+        if self.return_weight:
+            return result, beta
+        else:
+            return result
